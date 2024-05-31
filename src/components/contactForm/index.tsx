@@ -1,6 +1,7 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { logo } from "../../../constants";
 // import fetchEmails from "../../app/api/send-email";
+import Image from "next/image";
 import Link from "next/link";
 
 interface FormData {
@@ -61,7 +62,7 @@ const ContactForm: React.FC = () => {
             {logo.map((logos, index) => (
               <div className="bg-white p-2 rounded-lg" key={index}>
                 <Link href={logos.link}>
-                  <img src={logos.icon.src} alt="" className="h-5 w-5" />
+                  <Image src={logos.icon.src} alt="" className="h-5 w-5" />
                 </Link>
               </div>
             ))}
