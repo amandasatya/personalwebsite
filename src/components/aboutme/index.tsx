@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { profileimage } from "@/assets";
-import { logo, projects, skills } from "../../../constants";
+import { skills } from "../../../constants";
 
 const AboutMe = () => {
   return (
@@ -78,17 +78,7 @@ const AboutMe = () => {
             ABOUT ME
           </h1>
         </div>
-        {/*
-          
-          */}
       </div>
-      <div></div>
-      {/* <div className="flex justify-start items-center p-4 w-full bg-sky-700 relative overflow-hidden runner-border">
-        <h1 className="text-black text-xl font-semibold runner-animate">
-          React , Nextjs, Type Script, Java Script, Node.js, Postgresql, Supa
-          Base
-        </h1>
-      </div> */}
     </div>
   );
 };
