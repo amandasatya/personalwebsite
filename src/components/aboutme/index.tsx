@@ -68,7 +68,7 @@ const AboutMe = () => {
           </div>
         </div>
         <div className="xl:w-2/5 h-full lg:w-full lg:h-full hidden lg:flex">
-          <img
+          <Image
             src={profileimage.src}
             alt=""
             className=" lg:rounded-xl object-fill"

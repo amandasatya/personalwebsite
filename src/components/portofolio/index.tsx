@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Image from "next/image";
 import { projects } from "../../../constants";
 import Link from "next/link";
 
@@ -34,7 +35,7 @@ const WorksPage = () => {
                 key={index}
                 href={project.source_code_link}
               >
-                <img
+                <Image
                   src={project.image.src}
                   alt=""
                   className="xl:rounded-t-xl object-cover"
@@ -59,7 +60,11 @@ const WorksPage = () => {
                           key={tagIndex}
                           className="flex flex-wrap gap-1 justify-center items-center text-center"
                         >
-                          <img src={tag.icon?.src} alt="" className="h-6 w-6" />
+                          <Image
+                            src={tag.icon?.src}
+                            alt=""
+                            className="h-6 w-6"
+                          />
                           <h1>{tag.name}</h1>{" "}
                         </div>
                       ))}
