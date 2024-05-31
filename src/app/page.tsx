@@ -3,7 +3,6 @@ import React from "react";
 import Navbar from "@/components/navbar";
 import AboutMe from "@/components/aboutme";
 import WorksPage from "@/components/portofolio";
-import ContactForm from "@/components/contactForm";
 import bgimage from "../assets/images/bg2.jpg";
 
 export default function Home() {
@@ -18,7 +17,6 @@ export default function Home() {
       <Navbar />
       <AboutMe />
       <WorksPage />
-      {/* <ContactForm /> */}
     </div>
   );
 }
