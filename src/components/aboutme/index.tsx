@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { profileimage } from "@/assets";
 import { skills } from "../../../constants";
 
@@ -16,7 +17,7 @@ const AboutMe = () => {
         </h2>
         <div className="flex flex-wrap h-auto w-auto justify-center items-center gap-4 p-5">
           {skills.map((skill, index) => (
-            <img
+            <Image
               key={index}
               src={skill.icon.src}
               alt={skill.name}
