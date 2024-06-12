@@ -103,7 +103,7 @@ export const projects = [
       },
     ],
     image: porto7,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/amandasatya/Final_Project_Revou",
     loom: "",
   },
   {
@@ -123,7 +123,7 @@ export const projects = [
       },
     ],
     image: porto1,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/revou-fsse-3/milestone-1-amandasatya",
     loom: "",
   },
   {
@@ -138,7 +138,7 @@ export const projects = [
       },
     ],
     image: porto3,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://rempahnafarin.com",
     loom: "",
   },
   {
@@ -212,7 +212,7 @@ export const projects = [
       },
     ],
     image: porto5,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/revou-fsse-3/milestone-2-amandasatya",
     loom: "",
   },
   {
@@ -237,7 +237,7 @@ export const projects = [
       },
     ],
     image: porto6,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/revou-fsse-3/module-5-amandasatya",
     loom: "",
   },
 ];
