@@ -2,8 +2,17 @@ import React from "react";
 import Image from "next/image";
 import { profileimage } from "@/assets";
 import { skills } from "../../../constants";
+// import cvAmanda from "../../assets/CV";
 
 const AboutMe = () => {
+  const handleDownloadCV = () => {
+    const link = document.createElement("a");
+    link.href = "/cvamandasatya.pdf";
+    link.download = "CV-amandasatya.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
   return (
     <div className="flex flex-col gap-5">
       <div className="flex flex-col justify-start items-center text-5xl font-bold gap-2 text-center">
@@ -62,7 +71,10 @@ const AboutMe = () => {
                   immersive digital experiences that inspire and delight users.
                 </h1>
               </div>
-              <button className="p-3 bg-slate-400 rounded-lg cursor-pointer">
+              <button
+                className="p-3 bg-slate-400 rounded-lg cursor-pointer"
+                onClick={handleDownloadCV}
+              >
                 Download CV
               </button>
             </div>
