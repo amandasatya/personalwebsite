@@ -1,8 +1,7 @@
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import React, { useState, ChangeEvent, FormEvent, useRef } from "react";
 import { logo } from "../../../constants";
-// import fetchEmails from "../../app/api/send-email";
-import Image from "next/image";
 import Link from "next/link";
+import emailjs from "emailjs-com";
 
 interface FormData {
   firstName: string;
@@ -21,37 +20,49 @@ const ContactForm: React.FC = () => {
     message: "",
   });
 
+  const formRef = useRef<HTMLFormElement>(null);
+
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const sendEmail = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    try {
-      console.log("test");
-      const response = await fetch("/api", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-      console.log("ini resp", response);
-      if (response.ok) {
+    if (formRef.current) {
+      try {
+        const result = await emailjs.sendForm(
+          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+          formRef.current,
+          process.env.NEXT_PUBLIC_EMAILJS_USER_ID!
+        );
+        console.log("Email sent successfully:", result.text);
         alert("Email sent successfully!");
-      } else {
-        alert("Failed to send email.");
+      } catch (error) {
+        if (error instanceof Error) {
+          console.error("Error sending email:", error.message);
+          alert("Failed to send email: " + error.message);
+        } else {
+          console.error("Unexpected error:", error);
+          alert("Failed to send email. Please try again later.");
+        }
       }
-    } catch (error) {
-      console.log(error);
+    } else {
+      console.error("Form reference is not set.");
+      alert("Failed to send email. Form reference is not set.");
     }
+
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phoneNumber: "",
+      message: "",
+    });
   };
 
   return (
@@ -62,7 +73,7 @@ const ContactForm: React.FC = () => {
             {logo.map((logos, index) => (
               <div className="bg-white p-2 rounded-lg" key={index}>
                 <Link href={logos.link}>
-                  <Image src={logos.icon.src} alt="" className="h-5 w-5" />
+                  <img src={logos.icon.src} alt="" className="h-5 w-5" />
                 </Link>
               </div>
             ))}
@@ -70,7 +81,7 @@ const ContactForm: React.FC = () => {
           <div className="flex justify-center items-center text-2xl md:text-3xl font-bold p-5 text-center">
             Get in touch with me!
           </div>
-          <form onSubmit={handleSubmit} className="text-black">
+          <form ref={formRef} onSubmit={sendEmail} className="text-black">
             <div className="flex flex-col md:flex-row gap-2 p-3">
               <input
                 type="text"
@@ -79,6 +90,7 @@ const ContactForm: React.FC = () => {
                 className="p-3 rounded-lg w-full md:w-1/2"
                 value={formData.firstName}
                 onChange={handleChange}
+                id="firstName"
               />
               <input
                 type="text"
@@ -87,6 +99,7 @@ const ContactForm: React.FC = () => {
                 className="p-3 rounded-lg w-full md:w-1/2"
                 value={formData.lastName}
                 onChange={handleChange}
+                id="lastName"
               />
             </div>
             <div className="p-3">
@@ -97,6 +110,7 @@ const ContactForm: React.FC = () => {
                 className="p-3 rounded-lg w-full"
                 value={formData.email}
                 onChange={handleChange}
+                id="email_id"
               />
             </div>
             <div className="p-3">

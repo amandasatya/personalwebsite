@@ -3,8 +3,12 @@ import { FaHome } from "react-icons/fa";
 import { IoIosPerson } from "react-icons/io";
 import { MdWorkspaces } from "react-icons/md";
 import { BsFillTelephoneForwardFill } from "react-icons/bs";
-
-const Navbar = () => {
+import Link from "next/link";
+interface NavbarProps {
+  classname: string;
+  id: string;
+}
+const Navbar: React.FC<NavbarProps> = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -13,25 +17,44 @@ const Navbar = () => {
   const buttonOnclose = () => {
     setIsMenuOpen(false);
   };
+
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <div className="flex justify-around items-center text-md p-10 gap-3">
       <div>
         <h1 className="text-xl">Amanda Satya</h1>
       </div>
       <div className="hidden md:flex gap-2">
-        <div className="flex gap-1 justify-center items-center hover:text-sky-600 cursor-pointer">
+        <div
+          className="flex gap-1 justify-center items-center hover:text-sky-600 cursor-pointer"
+          onClick={() => scrollToSection("home")}
+        >
           <FaHome />
           <h1>Home</h1>
         </div>
-        <div className="flex gap-1 justify-center items-center hover:text-sky-600 cursor-pointer">
+        <div
+          className="flex gap-1 justify-center items-center hover:text-sky-600 cursor-pointer"
+          onClick={() => scrollToSection("AboutMe")}
+        >
           <IoIosPerson />
           <h1>About</h1>
         </div>
-        <div className="flex gap-1 justify-center items-center hover:text-sky-600 cursor-pointer">
+        <div
+          className="flex gap-1 justify-center items-center hover:text-sky-600 cursor-pointer"
+          onClick={() => scrollToSection("portofolio")}
+        >
           <MdWorkspaces />
           <h1>Portofolio</h1>
         </div>
-        <div className="flex gap-1 justify-center items-center hover:text-sky-600 cursor-pointer">
+        <div
+          className="flex gap-1 justify-center items-center hover:text-sky-600 cursor-pointer"
+          onClick={() => scrollToSection("contact")}
+        >
           <BsFillTelephoneForwardFill />
           <h1>Contact</h1>
         </div>
@@ -57,14 +80,20 @@ const Navbar = () => {
               <FaHome />
               <h1>Home</h1>
             </div>
-            <div className="flex gap-1 justify-start items-center">
+            <Link
+              href={"#about"}
+              className="flex gap-1 justify-start items-center"
+            >
               <IoIosPerson />
               <h1>About</h1>
-            </div>
-            <div className="flex gap-1 justify-start items-center">
+            </Link>
+            <Link
+              href={"#portofolio"}
+              className="flex gap-1 justify-start items-center"
+            >
               <MdWorkspaces />
               <h1>Portofolio</h1>
-            </div>
+            </Link>
             <div className="flex gap-1 justify-start items-center">
               <BsFillTelephoneForwardFill />
               <h1>Contact</h1>

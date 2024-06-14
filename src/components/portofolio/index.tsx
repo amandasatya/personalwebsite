@@ -22,7 +22,7 @@ const WorksPage = () => {
   };
 
   return (
-    <div className="pt-10">
+    <div className="pt-10" id="portofolio">
       <div className="flex justify-center items-center">
         <div>
           <h1 className="text-3xl font-bold text-sky-600 flex justify-center items-center p-5">

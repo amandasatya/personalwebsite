@@ -3,7 +3,6 @@ import Image from "next/image";
 import { profileimage } from "@/assets";
 import { skills } from "../../../constants";
 // import cvAmanda from "../../assets/CV";
-
 const AboutMe = () => {
   const handleDownloadCV = () => {
     const link = document.createElement("a");
@@ -14,7 +13,7 @@ const AboutMe = () => {
     document.body.removeChild(link);
   };
   return (
-    <div className="flex flex-col gap-5">
+    <section className="flex flex-col gap-5" id="about">
       <div className="flex flex-col justify-start items-center text-5xl font-bold gap-2 text-center">
         <h1>Hello, </h1>
         <h1>
@@ -94,7 +93,7 @@ const AboutMe = () => {
           </h1>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
