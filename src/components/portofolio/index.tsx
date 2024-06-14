@@ -35,7 +35,7 @@ const WorksPage = () => {
                 key={index}
                 href={project.source_code_link}
               >
-                <Image
+                <img
                   src={project.image.src}
                   alt=""
                   className="xl:rounded-t-xl object-cover"
@@ -60,10 +60,10 @@ const WorksPage = () => {
                           key={tagIndex}
                           className="flex flex-wrap gap-1 justify-center items-center text-center"
                         >
-                          <Image
+                          <img
                             src={tag.icon?.src}
                             alt=""
-                            className="h-6 w-6"
+                            className="flex h-6 w-6"
                           />
                           <h1>{tag.name}</h1>{" "}
                         </div>

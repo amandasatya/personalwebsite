@@ -17,7 +17,8 @@ const AboutMe = () => {
         </h2>
         <div className="flex flex-wrap h-auto w-auto justify-center items-center gap-4 p-5">
           {skills.map((skill, index) => (
-            <Image
+            <img
+              // fill={true}
               key={index}
               src={skill.icon.src}
               alt={skill.name}
@@ -68,10 +69,11 @@ const AboutMe = () => {
           </div>
         </div>
         <div className="xl:w-2/5 h-full lg:w-full lg:h-full hidden lg:flex">
-          <Image
+          <img
+            // fill={true}
             src={profileimage.src}
             alt=""
-            className=" lg:rounded-xl object-fill"
+            className="lg:rounded-xl object-fill w-full h-full"
           />
         </div>
         <div className="lg:w-1/5 xl:w-1/5 ">
