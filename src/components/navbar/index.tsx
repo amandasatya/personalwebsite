@@ -30,39 +30,42 @@ const Navbar: React.FC<NavbarProps> = () => {
         <h1 className="text-xl">Amanda Satya</h1>
       </div>
       <div className="hidden md:flex gap-2">
-        <div
+        <Link
+          href={"#home"}
           className="flex gap-1 justify-center items-center hover:text-sky-600 cursor-pointer"
-          onClick={() => scrollToSection("home")}
         >
           <FaHome />
           <h1>Home</h1>
-        </div>
-        <div
+        </Link>
+        <Link
+          href={"#about"}
           className="flex gap-1 justify-center items-center hover:text-sky-600 cursor-pointer"
-          onClick={() => scrollToSection("AboutMe")}
         >
           <IoIosPerson />
           <h1>About</h1>
-        </div>
-        <div
+        </Link>
+        <Link
+          href={"#portofolio"}
           className="flex gap-1 justify-center items-center hover:text-sky-600 cursor-pointer"
-          onClick={() => scrollToSection("portofolio")}
         >
           <MdWorkspaces />
           <h1>Portofolio</h1>
-        </div>
-        <div
+        </Link>
+        <Link
+          href={"#contact"}
           className="flex gap-1 justify-center items-center hover:text-sky-600 cursor-pointer"
-          onClick={() => scrollToSection("contact")}
         >
           <BsFillTelephoneForwardFill />
           <h1>Contact</h1>
-        </div>
+        </Link>
       </div>
       <div className="hidden md:flex">
-        <h1 className="p-1 bg-slate-700 rounded-md px-4 cursor-pointer hover:bg-sky-600">
+        <Link
+          href={"#contact"}
+          className="p-1 bg-slate-700 rounded-md px-4 cursor-pointer hover:bg-sky-600"
+        >
           Let's talk
-        </h1>
+        </Link>
       </div>
       <div className="md:hidden">
         <button
@@ -76,10 +79,13 @@ const Navbar: React.FC<NavbarProps> = () => {
         <div className="">
           <div className="md:hidden flex flex-col gap-2 absolute top-0 right-0 w-full bg-slate-700  shadow-md p-4">
             <h1>Amanda Satya</h1>
-            <div className="flex gap-1 justify-start items-center">
+            <Link
+              href={"#home"}
+              className="flex gap-1 justify-start items-center"
+            >
               <FaHome />
               <h1>Home</h1>
-            </div>
+            </Link>
             <Link
               href={"#about"}
               className="flex gap-1 justify-start items-center"
@@ -94,10 +100,13 @@ const Navbar: React.FC<NavbarProps> = () => {
               <MdWorkspaces />
               <h1>Portofolio</h1>
             </Link>
-            <div className="flex gap-1 justify-start items-center">
+            <Link
+              href={"#contact"}
+              className="flex gap-1 justify-start items-center"
+            >
               <BsFillTelephoneForwardFill />
               <h1>Contact</h1>
-            </div>
+            </Link>
           </div>
           <div className="flex absolute top-1 right-2  ">
             <button

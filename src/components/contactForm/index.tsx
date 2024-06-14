@@ -66,7 +66,7 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="flex justify-center items-center p-5">
+    <div className="flex justify-center items-center p-5" id="contact">
       <div className="w-full max-w-lg">
         <div className="bg-slate-700 p-8 md:p-16 rounded-lg gap-2 flex flex-col">
           <div className="flex justify-center items-center mb-4 gap-2">
