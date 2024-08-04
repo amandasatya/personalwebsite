@@ -42,7 +42,7 @@ const AboutMe = () => {
           </h1>
         </div>
         <div className="lg:w-2/5 ">
-          <div className="bg-slate-800 lg:rounded-2xl justify-center items-center p-5 xl:p-8 xl:container xl:flex  xl:absolute xl:-bottom-16 2xl:-bottom-40 xl:-right-10 ">
+          <div className="bg-slate-800 lg:rounded-2xl justify-center items-center p-5 xl:p-8 xl:container xl:flex   xl:-bottom-16 2xl:-bottom-40 xl:-right-10 ">
             <div className="flex flex-col justify-center items gap-5">
               <h1 className="text-2xl lg:text-5xl font-bold flex lg:justify-start items-center">
                 Amanda Satya
@@ -73,6 +73,7 @@ const AboutMe = () => {
               <button
                 className="p-3 bg-slate-400 rounded-lg cursor-pointer"
                 onClick={handleDownloadCV}
+                style={{ zIndex: 10 }}
               >
                 Download CV
               </button>
