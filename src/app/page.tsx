@@ -26,6 +26,11 @@ export default function Home() {
       <ExperiencesTimeline />
       <WorksPage />
       <ContactForm />
+      <div>
+        <h1 className="flex justify-center items-center bg-sky-900 p-5">
+          2024 © Amanda Satya Nugraha
+        </h1>
+      </div>
     </div>
   );
 }
