@@ -14,11 +14,15 @@ import porto4 from "./porto/porto4.png";
 import porto5 from "./porto/porto5.png";
 import porto6 from "./porto/porto6.png";
 import porto7 from "./porto/porto7.png";
+import porto8 from "./porto/porto8.png";
 import bgimage from "./images/bg2.jpg";
 import whatsapp from "./logo/whatsapp-svgrepo-com.svg";
 import github from "./logo/github-142-svgrepo-com.svg";
 import api from "./tech/api-svgrepo-com (2).svg";
 import python from "./tech/python-svgrepo-com.svg";
+import nestjs from "./tech/icons8-nestjs-48.png";
+import postgres from "./tech/icons8-postgres-48.png";
+import prisma from "./tech/icons8-prisma-orm.svg";
 export {
   css,
   git,
@@ -36,9 +40,13 @@ export {
   porto5,
   porto6,
   porto7,
+  porto8,
   bgimage,
   whatsapp,
   github,
   api,
   python,
+  nestjs,
+  postgres,
+  prisma,
 };

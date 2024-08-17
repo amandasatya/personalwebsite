@@ -14,10 +14,14 @@ import {
   porto5,
   porto6,
   porto7,
+  porto8,
   whatsapp,
   github,
   api,
   python,
+  nestjs,
+  postgres,
+  prisma,
 } from "../src/assets";
 const whatsappNumber = "+62895606107868";
 const whatsappMessage = encodeURIComponent(
@@ -76,6 +80,30 @@ export const logo = [
 ];
 
 export const projects = [
+  {
+    name: "We Rent",
+    description:
+      "Web-based platform with mobile first design, user can rent a shirt, cosplay dress, etc.",
+    tags: [
+      {
+        name: "nestJs",
+        icon: nestjs,
+        color: "green-text-gradient",
+      },
+      {
+        name: "Prisma ORM",
+        icon: prisma,
+        color: "green-text-gradient",
+      },
+      {
+        name: "PostGresSQL",
+        icon: postgres,
+        color: "green-text-gradient",
+      },
+    ],
+    image: porto8,
+    source_code_link: "https://github.com/amandasatya/WeRent",
+  },
   {
     name: "Health Hub",
     description:
