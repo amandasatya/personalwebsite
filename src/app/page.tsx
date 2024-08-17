@@ -5,6 +5,7 @@ import AboutMe from "@/components/aboutme";
 import WorksPage from "@/components/portofolio";
 import bgimage from "../assets/images/bg2.jpg";
 import ContactForm from "@/components/contactForm";
+import ExperiencesTimeline from "@/components/experience";
 
 const about = () => {
   <section></section>;
@@ -22,6 +23,7 @@ export default function Home() {
     >
       <Navbar classname="" id="navbar" />
       <AboutMe />
+      <ExperiencesTimeline />
       <WorksPage />
       <ContactForm />
     </div>

@@ -2,6 +2,7 @@ import React, { useState, ChangeEvent, FormEvent, useRef } from "react";
 import { logo } from "../../../constants";
 import Link from "next/link";
 import emailjs from "emailjs-com";
+import Swal from "sweetalert2";
 
 interface FormData {
   firstName: string;
@@ -32,6 +33,22 @@ const ContactForm: React.FC = () => {
   const sendEmail = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    if (
+      !formData.firstName ||
+      !formData.lastName ||
+      !formData.email ||
+      !formData.phoneNumber ||
+      !formData.message
+    ) {
+      Swal.fire({
+        title: "Incomplete Form",
+        text: "Please fill out all fields before submitting.",
+        icon: "warning",
+        confirmButtonText: "OK",
+      });
+      return;
+    }
+
     if (formRef.current) {
       try {
         const result = await emailjs.sendForm(
@@ -40,20 +57,39 @@ const ContactForm: React.FC = () => {
           formRef.current,
           process.env.NEXT_PUBLIC_EMAILJS_USER_ID!
         );
-        console.log("Email sent successfully:", result.text);
-        alert("Email sent successfully!");
+        Swal.fire({
+          title: "Email Sent!",
+          text: "Your message has been sent successfully.",
+          icon: "success",
+          confirmButtonText: "OK",
+        });
       } catch (error) {
         if (error instanceof Error) {
           console.error("Error sending email:", error.message);
-          alert("Failed to send email: " + error.message);
+          Swal.fire({
+            title: "Error!",
+            text: `Failed to send email: ${error.message}`,
+            icon: "error",
+            confirmButtonText: "Try Again",
+          });
         } else {
           console.error("Unexpected error:", error);
-          alert("Failed to send email. Please try again later.");
+          Swal.fire({
+            title: "Error!",
+            text: "Failed to send email. Please try again later.",
+            icon: "error",
+            confirmButtonText: "OK",
+          });
         }
       }
     } else {
       console.error("Form reference is not set.");
-      alert("Failed to send email. Form reference is not set.");
+      Swal.fire({
+        title: "Error!",
+        text: "Failed to send email. Form reference is not set.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
     }
 
     setFormData({

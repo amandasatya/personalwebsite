@@ -6,7 +6,7 @@ import { skills } from "../../../constants";
 const AboutMe = () => {
   const handleDownloadCV = () => {
     const link = document.createElement("a");
-    link.href = "/cvamandasatya.pdf";
+    link.href = "/CVamandasatyanugraha.pdf";
     link.download = "CV-amandasatya.pdf";
     document.body.appendChild(link);
     link.click();
