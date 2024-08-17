@@ -73,7 +73,7 @@ const AboutMe = () => {
               <button
                 className="p-3 bg-slate-400 rounded-lg cursor-pointer"
                 onClick={handleDownloadCV}
-                style={{ zIndex: 10 }}
+                style={{ zIndex: 99 }}
               >
                 Download CV
               </button>
